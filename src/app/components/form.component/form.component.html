@@ -1,0 +1,57 @@
+<div class="flex justify-center items-center w-[30vw] h-screen ml-auto mr-auto">
+  <div>
+    <section class="flex justify-start items-center gap-2">
+      <img src="/react.png" class="w-10 h-10" />
+      <h2 class="font-bold text-xl">Logo</h2>
+    </section>
+    <header class="mt-15 flex flex-col gap-3">
+      <h1 class="font-semibold text-4xl">Welcome to Salary Gateway</h1>
+      <h3>Kindly fill in your details below to create an account</h3>
+    </header>
+    <section>
+      <form class="mt-10 flex flex-col gap-3" [formGroup]="signupForm">
+        <p class="mt-5">Email Address</p>
+        <input
+          type="text"
+          class="border-2 border-gray-300 h-13 rounded-md w-full"
+          formControlName="email"
+        />
+        @if(signupForm.get('email')?.invalid && signupForm.get('email')?.touched){
+        <div>
+          <p class="text-red-500">incorrect email</p>
+        </div>
+        }
+        <p class="mt-5">Password</p>
+        <input
+          type="password"
+          class="border-2 border-gray-300 h-13 rounded-md w-full"
+          formControlName="password"
+        />
+        @if(signupForm.get('password')?.invalid && signupForm.get('password')?.touched){
+        <div>
+          <p class="text-red-500">incorrect password</p>
+        </div>
+        }
+        <button
+          class="bg-[#7A5AF8] text-white w-full h-13 rounded-md mt-5 disabled:opacity-40"
+          [disabled]="signupForm.invalid"
+        >
+          Register with us
+        </button>
+      </form>
+    </section>
+    <section>
+      <div class="flex justify-center items-center gap-10 mt-8">
+        <hr class="bg-gray-300 h-1 w-50 border-none" />
+        <h1>Or</h1>
+        <hr class="bg-gray-300 h-1 w-50 border-none" />
+      </div>
+      <div class="flex justify-center items-center gap-5 mt-8">
+        <img src="/google.png" class="w-6 h-6" />
+        <img src="/apple.png" class="w-6 h-6" />
+        <img src="/facebook.png" class="w-6 h-6" />
+        <img src="/twitter.png" class="w-6 h-6" />
+      </div>
+    </section>
+  </div>
+</div>

@@ -1,0 +1,37 @@
+<div class="relative w-[40vw] h-screen rounded-tl-[50px] rounded-bl-[50px] overflow-hidden">
+  <swiper-container #swiperContainer class="absolute inset-0">
+    @for(img of images; track $index){
+    <swiper-slide
+      class="w-full h-full bg-cover bg-center"
+      [style.background-image]="'url(' + img + ')'"
+    ></swiper-slide>
+    }
+  </swiper-container>
+  <div class="absolute z-999 inset-0 flex flex-col justify-around items-center pt-30 pb-30">
+    <section
+      class="flex flex-col justify-center items-start gap-10 bg-white/20 backdrop-blur-lg p-15 shadow-lg rounded-xl"
+    >
+      <h1 class="text-5xl text-white font-medium w-100">Connect Talent to Opportunities</h1>
+      <h3 class="w-110 text-white font-light">
+        Discover endless opportunities on FreelanceHu, where talented freelancers and businesses
+        unite. Jump right in with us!
+      </h3>
+    </section>
+
+    <section>
+      <h3 class="text-white">Upload samples of your work to impress potential clients</h3>
+      <div class="flex justify-between items-center mt-5">
+        <button id="prevBtn" class="text-white text-4xl"><mat-icon>arrow_back</mat-icon></button>
+        <div class="flex justify-center items-center gap-3">
+          @for(ind of images; track $index){
+          <span
+            class="bg-white w-2 h-2 rounded-[100%]"
+            [style.opacity]="currentIndex() === $index ? '1' : '0.2'"
+          ></span>
+          }
+        </div>
+        <button id="nextBtn" class="text-white text-4xl"><mat-icon>arrow_forward</mat-icon></button>
+      </div>
+    </section>
+  </div>
+</div>
