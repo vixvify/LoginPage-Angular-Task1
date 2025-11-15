@@ -1,5 +1,5 @@
-<div class="flex justify-center items-center w-[30vw] h-screen ml-auto mr-auto">
-  <div>
+<div class="flex justify-center items-center w-[60vw] h-screen ml-auto mr-auto">
+  <div class="w-[50%]">
     <section class="flex justify-start items-center gap-2">
       <img src="/react.png" class="w-10 h-10" />
       <h2 class="font-bold text-xl">Logo</h2>
@@ -13,7 +13,7 @@
         <p class="mt-5">Email Address</p>
         <input
           type="text"
-          class="border-2 border-gray-300 h-13 rounded-md w-full"
+          class="border-2 border-gray-300 h-13 rounded-md w-full p-3"
           formControlName="email"
         />
         @if(signupForm.get('email')?.invalid && signupForm.get('email')?.touched){
@@ -24,7 +24,7 @@
         <p class="mt-5">Password</p>
         <input
           type="password"
-          class="border-2 border-gray-300 h-13 rounded-md w-full"
+          class="border-2 border-gray-300 h-13 rounded-md w-full p-3"
           formControlName="password"
         />
         @if(signupForm.get('password')?.invalid && signupForm.get('password')?.touched){
