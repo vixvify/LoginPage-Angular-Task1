@@ -1,9 +1,9 @@
 import { Component, signal } from '@angular/core';
-import { LoginMainPage } from './login/pages/login-main/login-main.page';
+import { LoginPage } from './pages/login/login.page';
 
 @Component({
   selector: 'app-root',
-  imports: [LoginMainPage],
+  imports: [LoginPage],
   templateUrl: './app.html',
   styleUrl: './app.css',
   standalone: true,

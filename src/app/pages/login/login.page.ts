@@ -18,14 +18,14 @@ import { InputTextComponent } from '../../components/input-text.component/input-
 import { InputPasswordComponent } from '../../components/input-password.component/input-password.component';
 
 @Component({
-  selector: 'app-login-main',
+  selector: 'app-login',
   imports: [MatIconModule, ReactiveFormsModule, InputPasswordComponent, InputTextComponent],
   standalone: true,
-  templateUrl: './login-main.page.html',
-  styleUrl: './login-main.page.css',
+  templateUrl: './login.page.html',
+  styleUrl: './login.page.css',
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class LoginMainPage implements AfterViewInit {
+export class LoginPage implements AfterViewInit {
   @ViewChild('swiperContainer') swiperContainer!: ElementRef<SwiperContainer>;
 
   images = ['/bg-1.png', '/bg-2.png', '/bg-3.png', '/bg-4.png'];
