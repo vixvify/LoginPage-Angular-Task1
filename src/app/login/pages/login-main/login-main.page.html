@@ -1,0 +1,91 @@
+<div class="flex justify-between items-center">
+  <div class="flex justify-center items-center w-[60vw] h-screen ml-auto mr-auto">
+    <div class="w-[50%]">
+      <section class="flex justify-start items-center gap-2">
+        <img src="/react.png" class="w-10 h-10" />
+        <h2 class="font-bold text-xl">Logo</h2>
+      </section>
+      <header class="mt-15 flex flex-col gap-3">
+        <h1 class="font-semibold text-4xl">Welcome to Salary Gateway</h1>
+        <h3>Kindly fill in your details below to create an account</h3>
+      </header>
+      <section>
+        <form class="mt-10 flex flex-col gap-3" [formGroup]="signupForm">
+          <p class="mt-5">Email Address</p>
+          <app-input-text></app-input-text>
+          @if(signupForm.get('email')?.invalid && signupForm.get('email')?.touched){
+          <div>
+            <p class="text-red-500">incorrect email</p>
+          </div>
+          }
+          <p class="mt-5">Password</p>
+          <app-input-password></app-input-password>
+          @if(signupForm.get('password')?.invalid && signupForm.get('password')?.touched){
+          <div>
+            <p class="text-red-500">incorrect password</p>
+          </div>
+          }
+          <button
+            class="bg-[#7A5AF8] text-white w-full h-13 rounded-md mt-5 disabled:opacity-40"
+            [disabled]="signupForm.invalid"
+          >
+            Register with us
+          </button>
+        </form>
+      </section>
+      <section>
+        <div class="flex justify-center items-center gap-10 mt-8">
+          <hr class="bg-gray-300 h-1 w-50 border-none" />
+          <h1>Or</h1>
+          <hr class="bg-gray-300 h-1 w-50 border-none" />
+        </div>
+        <div class="flex justify-center items-center gap-5 mt-8">
+          <img src="/google.png" class="w-6 h-6" />
+          <img src="/apple.png" class="w-6 h-6" />
+          <img src="/facebook.png" class="w-6 h-6" />
+          <img src="/twitter.png" class="w-6 h-6" />
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <div class="relative w-[40vw] h-screen rounded-tl-[50px] rounded-bl-[50px] overflow-hidden">
+    <swiper-container #swiperContainer class="absolute inset-0">
+      @for(img of images; track $index){
+      <swiper-slide
+        class="w-full h-full bg-cover bg-center"
+        [style.background-image]="'url(' + img + ')'"
+      ></swiper-slide>
+      }
+    </swiper-container>
+    <div class="absolute z-999 inset-0 flex flex-col justify-around items-center pt-30 pb-30">
+      <section
+        class="flex flex-col justify-center items-start gap-10 bg-white/20 backdrop-blur-lg p-15 shadow-lg rounded-xl"
+      >
+        <h1 class="text-5xl text-white font-medium w-100">Connect Talent to Opportunities</h1>
+        <h3 class="w-110 text-white font-light">
+          Discover endless opportunities on FreelanceHu, where talented freelancers and businesses
+          unite. Jump right in with us!
+        </h3>
+      </section>
+
+      <section>
+        <h3 class="text-white">Upload samples of your work to impress potential clients</h3>
+        <div class="flex justify-between items-center mt-5">
+          <button id="prevBtn" class="text-white text-4xl"><mat-icon>arrow_back</mat-icon></button>
+          <div class="flex justify-center items-center gap-3">
+            @for(ind of images; track $index){
+            <span
+              class="bg-white w-2 h-2 rounded-[100%]"
+              [style.opacity]="currentIndex() === $index ? '1' : '0.2'"
+            ></span>
+            }
+          </div>
+          <button id="nextBtn" class="text-white text-4xl">
+            <mat-icon>arrow_forward</mat-icon>
+          </button>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>

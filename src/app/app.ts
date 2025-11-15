@@ -1,10 +1,9 @@
 import { Component, signal } from '@angular/core';
-import { FormComponent } from './components/form.component/form.component';
-import { BackgroundComponent } from './components/background.component/background.component';
+import { LoginMainPage } from './login/pages/login-main/login-main.page';
 
 @Component({
   selector: 'app-root',
-  imports: [FormComponent, BackgroundComponent],
+  imports: [LoginMainPage],
   templateUrl: './app.html',
   styleUrl: './app.css',
   standalone: true,

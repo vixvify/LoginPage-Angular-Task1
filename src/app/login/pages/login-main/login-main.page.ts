@@ -11,15 +11,21 @@ import { SwiperContainer } from 'swiper/element';
 import { SwiperOptions } from 'swiper/types';
 import { MatIconModule } from '@angular/material/icon';
 
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+
+import { InputTextComponent } from '../../components/input-text.component/input-text.component';
+import { InputPasswordComponent } from '../../components/input-password.component/input-password.component';
+
 @Component({
-  selector: 'app-background',
-  imports: [MatIconModule],
+  selector: 'app-login-main',
+  imports: [MatIconModule, ReactiveFormsModule, InputPasswordComponent, InputTextComponent],
   standalone: true,
-  templateUrl: './background.component.html',
-  styleUrl: './background.component.css',
+  templateUrl: './login-main.page.html',
+  styleUrl: './login-main.page.css',
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class BackgroundComponent implements AfterViewInit {
+export class LoginMainPage implements AfterViewInit {
   @ViewChild('swiperContainer') swiperContainer!: ElementRef<SwiperContainer>;
 
   images = ['/bg-1.png', '/bg-2.png', '/bg-3.png', '/bg-4.png'];
@@ -68,4 +74,13 @@ export class BackgroundComponent implements AfterViewInit {
       });
     }
   }
+
+  signupForm = new FormGroup({
+    email: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl('', [
+      Validators.required,
+      Validators.minLength(6),
+      Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).+$'),
+    ]),
+  });
 }
