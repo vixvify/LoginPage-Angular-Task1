@@ -1,9 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-input-password',
-  imports: [],
+  imports: [ReactiveFormsModule],
   templateUrl: './input-password.component.html',
   styleUrl: './input-password.component.css',
 })
-export class InputPasswordComponent {}
+export class InputPasswordComponent {
+  @Input() control!: FormControl | null;
+}

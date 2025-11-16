@@ -12,25 +12,20 @@
       <section>
         <form class="mt-10 flex flex-col gap-3" [formGroup]="signupForm">
           <p class="mt-5">Email Address</p>
-          <app-input-text></app-input-text>
+          <app-input-text [control]="emailControl"></app-input-text>
           @if(signupForm.get('email')?.invalid && signupForm.get('email')?.touched){
           <div>
             <p class="text-red-500">incorrect email</p>
           </div>
           }
           <p class="mt-5">Password</p>
-          <app-input-password></app-input-password>
+          <app-input-password [control]="passwordControl"></app-input-password>
           @if(signupForm.get('password')?.invalid && signupForm.get('password')?.touched){
           <div>
             <p class="text-red-500">incorrect password</p>
           </div>
           }
-          <button
-            class="bg-[#7A5AF8] text-white w-full h-13 rounded-md mt-5 disabled:opacity-40"
-            [disabled]="signupForm.invalid"
-          >
-            Register with us
-          </button>
+          <app-button text="Register with us" [disable]="signupForm.invalid"></app-button>
         </form>
       </section>
       <section>

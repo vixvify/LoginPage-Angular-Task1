@@ -1,11 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-button.component',
+  selector: 'app-button',
   imports: [],
   templateUrl: './button.component.html',
   styleUrl: './button.component.css',
 })
 export class ButtonComponent {
-
+  @Input() text!: String;
+  @Input() disable!: Boolean;
 }

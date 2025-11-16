@@ -5,6 +5,7 @@ import {
   ElementRef,
   AfterViewInit,
   signal,
+  effect,
 } from '@angular/core';
 
 import { SwiperContainer } from 'swiper/element';
@@ -16,10 +17,17 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { InputTextComponent } from '../../components/input-text.component/input-text.component';
 import { InputPasswordComponent } from '../../components/input-password.component/input-password.component';
+import { ButtonComponent } from '../../components/button.component/button.component';
 
 @Component({
   selector: 'app-login',
-  imports: [MatIconModule, ReactiveFormsModule, InputPasswordComponent, InputTextComponent],
+  imports: [
+    MatIconModule,
+    ReactiveFormsModule,
+    InputPasswordComponent,
+    InputTextComponent,
+    ButtonComponent,
+  ],
   standalone: true,
   templateUrl: './login.page.html',
   styleUrl: './login.page.css',
@@ -83,4 +91,11 @@ export class LoginPage implements AfterViewInit {
       Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).+$'),
     ]),
   });
+  get emailControl() {
+    return this.signupForm.get('email') as FormControl;
+  }
+
+  get passwordControl() {
+    return this.signupForm.get('password') as FormControl;
+  }
 }
